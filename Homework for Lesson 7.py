@@ -35,6 +35,7 @@ def perfect_number(n):
     return sum == n
 #print(perfect_number(6))
 
+#This function is NOT WORKING
 def find_perfect_number():
     list = []
     while True:
