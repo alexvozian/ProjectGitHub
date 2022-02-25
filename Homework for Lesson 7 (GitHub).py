@@ -43,7 +43,8 @@ def find_perfect_number():
         if p == "end":
             break
         else:
-            if perfect_number(p):
+            number = int(p)
+            if perfect_number(number):
                 list.append(p)
     return list
 
@@ -80,4 +81,4 @@ print(punct_dict)
 for keys, values in punct_dict.items():
          if max(punct_dict.values()) == values:
              b = keys
-print(f'Most commonly used word was "{b}", {max(punct_dict.values())}')
+             print(f'Most commonly used word was "{b}", {max(punct_dict.values())}')
