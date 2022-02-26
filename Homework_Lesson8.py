@@ -42,26 +42,44 @@ text = input("Text in the file: ")
 file.write(text)
 
 #Ex5:
+
 import json
 
-def print_dishes():
-    file_dish_json = open("file_dish.json", "r")
-    file_dish_json.read()
-    file_dish_list = json.loads(file_dish_json)
-    file_dish_list = []
-    return file_dish_list
+def extract_information_from_file():
+    try:
+        file_json_for_riding = open("file_json", "r")
+        file_json_read = file_json_for_riding.read()
+        list_from_file = json.loads(file_json_read)
+    except Exception:
+        list_from_file = []
+    return list_from_file
 
-
-
-def add_dish():
-    dish = input("What dish to add? ")
-    file_dish = open("file_dish.json", "a")
-    file_dish_json = json.dumps(file_dish)
-    file_dish_json.write(dish)
-    file_dish_json.write(", ")
-    file_dish_json.close()
-    print(f"Dish {dish} was added to the list.")
+def add_new_element_to_file():
+    new_element = input("What dish to add? (One element only) ")
+    file_json_for_riding = open("file_json", "r")
+    file_json_read = file_json_for_riding.read()
+    list_from_file = json.loads(file_json_read)
+    list_from_file.append(new_element)
+    file_json_for_writing = open("file_json", "w")
+    list_from_file_json = json.dumps(list_from_file)
+    file_json_for_writing.write(list_from_file_json)
+    file_json_for_writing.close()
+    print(f"Dish {new_element} was added to the list.")
     return
+
+#or
+
+def add_new_element_to_file_2():
+    new_element = input("What dish to add? (One element only) ")
+    list_from_file = extract_information_from_file()
+    list_from_file.append(new_element)
+    file_json_for_writing = open("file_json", "w")
+    list_from_file_json = json.dumps(list_from_file)
+    file_json_for_writing.write(list_from_file_json)
+    file_json_for_writing.close()
+    print(f"Dish {new_element} was added to the list.")
+    return
+
 
 def prog():
     try:
@@ -69,9 +87,9 @@ def prog():
         print('Input "2" to add a new dish')
         number = int(input("What is your choice? "))
         if number == 1:
-            return print_dishes()
+            return print(extract_information_from_file())
         elif number == 2:
-            return add_dish()
+            return print(add_new_element_to_file())
         else:
             print('Please input "1" or "2".')
             return
@@ -80,3 +98,38 @@ def prog():
         return
 
 prog()
+
+#-----------------------------------------or--------------------------------------------------------
+
+def extract_information_from_file2():
+    file_json_for_riding = open("file_json", "r")
+    file_json_read = file_json_for_riding.read()
+    return file_json_read
+
+def add_new_element_to_file2():
+    new_element = input("What dish to add? (One element only) ")
+    file_json_for_adding = open("file_json", "a")
+    file_json_for_adding.write(new_element)
+    file_json_for_adding.write(", ")
+    file_json_for_adding.close()
+    print(f"Dish {new_element} was added to the list.")
+    return
+
+
+def prog2():
+    try:
+        print('Input "1" to print out all dishes')
+        print('Input "2" to add a new dish')
+        number = int(input("What is your choice? "))
+        if number == 1:
+            return print(extract_information_from_file2())
+        elif number == 2:
+            return print(add_new_element_to_file2())
+        else:
+            print('Please input "1" or "2".')
+            return
+    except ValueError:
+        print("Please input a Number")
+        return
+
+prog2()
