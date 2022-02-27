@@ -31,7 +31,7 @@ print(new_file)
 
 #Ex3:
 new_file2 = open("test_file.txt", "a")
-new_file2.write("Hey there.If you can see this in your console, this means your program works, and you are printing from a file.")
+new_file2.write("Hey there.\nIf you can see this in your console, this means your program works, and you are printing from a file.")
 new_file2.close()
 print(new_file2)
 
@@ -42,7 +42,6 @@ text = input("Text in the file: ")
 file.write(text)
 
 #Ex5:
-
 import json
 
 def extract_information_from_file():
@@ -133,3 +132,19 @@ def prog2():
         return
 
 prog2()
+
+#Ex1(Extra)
+create_file = open("file.txt", "w")
+write_create_file = create_file.write("Hey there.\nIf you can see this in your console, this means your program works, and you are printing from a file.")
+create_file.close()
+open_file_r = open("file.txt", "r")
+read_file = open_file_r.read()
+print(read_file)
+oneline_file = read_file.replace("\n", " ")
+print(oneline_file)
+punctuations_list = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+for el in punctuations_list:
+    oneline_file_np = oneline_file.strip(el)
+words_list = oneline_file_np.split(" ")
+print(words_list)
+print(f"The file contains {len(words_list)} words.")
