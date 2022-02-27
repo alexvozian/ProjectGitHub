@@ -166,6 +166,26 @@ create_file = open("file.txt", "w")
 create_file.write("Hey there.\nIf you can see this in your console, this means your program works, and you are printing from a file.")
 create_file.close()
 open_file_r = open("file.txt", "r")
+read_file = open_file_r.readlines()
+print(read_file)
+a = max(read_file)
+print(a)
+read_file_d = dict()
+for el in read_file:
+    read_file_d[el] = len(el)
+print(read_file_d)
+print(max(read_file_d.values()))
+for key, value in read_file_d.items():
+    if value == max(read_file_d.values()):
+        d = key
+        print(d)
+
+#or
+
+create_file = open("file.txt", "w")
+create_file.write("Hey there.\nIf you can see this in your console, this means your program works, and you are printing from a file.")
+create_file.close()
+open_file_r = open("file.txt", "r")
 read_file = open_file_r.read()
 line_list = read_file.split("\n")
 a = max(line_list)
