@@ -47,11 +47,12 @@ for le in rev:
         if le == el["salary"]:
             top_salary_name.append(el)
 print(f"Top 10 highest paid employees from highest paid to lower are: {top_salary_name[:10]}")
+sorted_dates = list()
 for yy in start_of_work_list:
-    ff = datetime.strptime(yy, "%m/%d/%Y")
-ver = sorted(start_of_work_list)
-print(ver)
-for tt in ver:
+    sorted_dates.append(datetime.strptime(yy, "%m/%d/%Y"))
+ver = sorted(sorted_dates)
+ver_str = [date.strftime("%m/%d/%Y") for date in ver]
+for tt in ver_str:
     for el in info:
         if tt == el["employee_from"]:
             top_longest_name.append(el)
