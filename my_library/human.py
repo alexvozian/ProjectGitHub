@@ -8,6 +8,10 @@ class Human():
         self._set_lastname(self._check_lasttname(lastname))
         self._set_dateofbirth(self._check_dateofbirth(dateofbirth))
 
+    def __str__(self):
+        from datetime import datetime
+        return f"{self.FirstName} {self.LastName}, age {datetime.now().date().year - self.DateOfBirth.year}"
+
     def _check_firstname(self, firstname):
         if type(firstname) is not str:
             raise Exception("First Name need to be a String")

@@ -160,9 +160,9 @@ class HumanWithPet():
         if len(self.PetList) == 0:
             return f"{self.FirstName} {self.LastName}, age {datetime.now().date().year - self.DateOfBirth.year} with no pets"
         elif len(self.PetList) == 1:
-            return f"{self.FirstName} {self.LastName}, age {datetime.now().date().year - self.DateOfBirth.year} with a pet: {self.PetList}"
+            return f"{self.FirstName} {self.LastName}, age {datetime.now().date().year - self.DateOfBirth.year} with a pet: {','.join(str(e) for e in self.PetList)}"
         else:
-            return f"{self.FirstName} {self.LastName}, age {datetime.now().date().year - self.DateOfBirth.year} with {len(self.PetList)} pets: {self.PetList}"
+            return f"{self.FirstName} {self.LastName}, age {datetime.now().date().year - self.DateOfBirth.year} with {len(self.PetList)} pets: {','.join(str(e) for e in self.PetList)}"
 
     def _check_firstname(self, firstname):
         if type(firstname) is not str:

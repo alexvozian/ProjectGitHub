@@ -8,6 +8,9 @@ class pet():
         self._set_type(self._check_type(type))
         self._set_favoritefood(self._check_favoritefood(favoritefood))
 
+    def __str__(self):
+        return f" {self.Type} called {self.Name} that loves {self.FavoriteFood}"
+
     def _check_name(self, name):
         if type(name) is not str:
             raise Exception("Name need to be a String")

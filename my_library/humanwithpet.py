@@ -1,3 +1,5 @@
+from my_library.pet import pet
+from my_library.human import Human
 
 class HumanWithPet():
     Human = None
@@ -10,12 +12,12 @@ class HumanWithPet():
         if len(self.PetList) == 0:
             return f"{self.Human} with no pets"
         elif len(self.PetList) == 1:
-            return f"{self.Human} with a pet: {self.PetList}"
+            return f"{self.Human} with a pet:{','.join(str(e) for e in self.PetList)}"
         else:
-            return f"{self.Human} with {len(self.PetList)} pets: {self.PetList}"
+            return f"{self.Human} with {len(self.PetList)} pets:{','.join(str(e) for e in self.PetList)}"
 
     def _set_human(self, human):
-        self.Human = human
+        self.Human = str(human)
         return self.Human
 
     def _set_pet(self, pet):
