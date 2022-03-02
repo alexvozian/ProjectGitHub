@@ -149,7 +149,7 @@ class HumanWithPet():
     DateOfBirth = None
     PetList = list()
 
-    def __init__(self, firstname, lastname, dateofbirth, petlist):
+    def __init__(self, firstname, lastname, dateofbirth, petlist=[]):
         self._set_firstname(self._check_firstname(firstname))
         self._set_lastname(self._check_lasttname(lastname))
         self._set_dateofbirth(self._check_dateofbirth(dateofbirth))
@@ -162,7 +162,7 @@ class HumanWithPet():
         elif len(self.PetList) == 1:
             return f"{self.FirstName} {self.LastName}, age {datetime.now().date().year - self.DateOfBirth.year} with a pet: {self.PetList}"
         else:
-            return f"{self.FirstName} {self.LastName}, age {datetime.now().date().year - self.DateOfBirth.year} with pets: {self.PetList}"
+            return f"{self.FirstName} {self.LastName}, age {datetime.now().date().year - self.DateOfBirth.year} with {len(self.PetList)} pets: {self.PetList}"
 
     def _check_firstname(self, firstname):
         if type(firstname) is not str:

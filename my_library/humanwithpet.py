@@ -1,3 +1,4 @@
+
 class HumanWithPet():
     Human = None
     PetList = list()
@@ -11,7 +12,7 @@ class HumanWithPet():
         elif len(self.PetList) == 1:
             return f"{self.Human} with a pet: {self.PetList}"
         else:
-            return f"{self.Human} with pets: {self.PetList}"
+            return f"{self.Human} with {len(self.PetList)} pets: {self.PetList}"
 
     def _set_human(self, human):
         self.Human = human
