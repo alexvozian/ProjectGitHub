@@ -157,7 +157,12 @@ class HumanWithPet():
 
     def __str__(self):
         from datetime import datetime
-        return f"{self.FirstName} {self.LastName}, age {datetime.now().date().year - self.DateOfBirth.year} with a pet: {self.PetList}"
+        if len(self.PetList) == 0:
+            return f"{self.FirstName} {self.LastName}, age {datetime.now().date().year - self.DateOfBirth.year} with no pets"
+        elif len(self.PetList) == 1:
+            return f"{self.FirstName} {self.LastName}, age {datetime.now().date().year - self.DateOfBirth.year} with a pet: {self.PetList}"
+        else:
+            return f"{self.FirstName} {self.LastName}, age {datetime.now().date().year - self.DateOfBirth.year} with pets: {self.PetList}"
 
     def _check_firstname(self, firstname):
         if type(firstname) is not str:
