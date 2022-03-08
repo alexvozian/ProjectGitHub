@@ -23,7 +23,7 @@ def extract_information_from_file_list(file_name):
     return list_from_file
 
 
-info = extract_information_from_file_list("C:\\Users\\vozia\\PycharmProjects\\ProjectGitHub\\big_file.json")
+info = extract_information_from_file_list("/my_library/big_file.json")
 name_list = list()
 position_list = list()
 salary_list = list()
