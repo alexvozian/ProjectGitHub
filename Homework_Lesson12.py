@@ -92,7 +92,7 @@ def get_valut_from_MDL():
     return valut
 
 def get_MDL_from_valut():
-    valutmdl = input("What valut you want to convert to MDL? ")
+    valutmdl = input("What valut you want to convert to MDL? Ex: EUR, USD ")
     return valutmdl
 
 def MDL_get_quantity():
@@ -113,7 +113,7 @@ def extract_information_from_file_dict(file_name):
     return list_from_file
 
 def get_valut_rate(valut):
-    valuti = extract_information_from_file_dict("conversion_rates.json").get(valut)
+    valuti = extract_information_from_file_dict("my_library/conversion_rates.json").get(valut)
     rate = valuti.get("rate")
     return rate
 
@@ -128,8 +128,8 @@ def valut_amount(rate, quantity_valut):
 def exchange():
     dict1 = dict()
     dict3 = dict()
-    for el in extract_information_from_file_dict("conversion_rates.json"):
-        valuti = extract_information_from_file_dict("conversion_rates.json").get(el)
+    for el in extract_information_from_file_dict("my_library/conversion_rates.json"):
+        valuti = extract_information_from_file_dict("my_library/conversion_rates.json").get(el)
         dict1[valuti.get("code")] = valuti.get("rate")
         dict3[valuti.get("code")] = 1 / float(valuti.get("rate"))
         dict2 = {k: v for k, v in sorted(dict1.items(), key=lambda item: item[1])}
