@@ -35,15 +35,35 @@ for le in orig_list:
 print(palindrome_list)
 
 #Ex3:
-def validate_numeric(funct):
-    try:
-        funct == float
-    except ValueError:
-        print(("Is not Numeric"))
+def validate_numeric(func):
+    def wrapper_func(*args, **kwargs):
+        arg_list = args[0]
+        for arg in arg_list:
+            if type(arg) == int or type(arg) == float:
+                pass
+            else:
+                raise TypeError
+
+        value_returned = func(*args, **kwargs)
+        print(value_returned)
+        return value_returned
+
+    return wrapper_func
 
 @validate_numeric
-def numeric(a):
-    return a
+def numeric(list1):
+    return sum(list1)
+
+numeric([3, 2])
+
+#Ex4:
+def my_user_input_generator(stop_at):
+    user_input = ""
+    while user_input != stop_at:
+        user_input = input("Please enter something: ")
+        yield user_input
 
 
-print(numeric(3))
+for user_input in my_user_input_generator('STOP'):
+    if user_input != "STOP":
+        print(user_input)
